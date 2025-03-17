@@ -2,6 +2,24 @@
 
 En enkel Github Action som viser oppsummering av gradle tester i Github Actions oppsummeringen
 
+## Ta i bruk
+
+```yaml
+jobs:
+  build:
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v4
+
+      # Bygg og test appen din
+
+      - name: Summarize tests results
+        uses: navikt/gradle-tests-summary@v1
+        if: ${{ always() }}
+```
+
+`if: ${{ always() }}` gjør at testen din kan oppsummeres selv om det feiler og stopper eksekveringen av stepsa dine.
+
 ## Eksempel output:
 
 | Subproject  |       Status       | Tests | Passed | Skipped | Failures | Errors |
