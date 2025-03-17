@@ -2,5 +2,5 @@ name: 'Gradle Tests Summary'
 description: 'Summarizes Gradle tests results as a Github step summary'
 
 runs:
-  using: 'node22'
+  using: 'node20'
   main: 'dist/index.js'
