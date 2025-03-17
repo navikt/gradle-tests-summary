@@ -4,11 +4,15 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "bun build action.ts --outfile dist/index.js"
+    "build": "bun build src/index.ts --target node --outfile dist/index.js"
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.0"
+    "@actions/github": "^6.0.0",
+    "@types/xmldom": "^0.1.34",
+    "glob": "^11.0.1",
+    "xmldom": "^0.6.0",
+    "xpath": "^0.0.34"
   },
   "devDependencies": {
     "@karl-run/prettier-config": "^1.0.1",
