@@ -1,14 +1,18 @@
 // Bun Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should handle single module 1`] = `
-"| Subproject | Status | Tests | Passed | Skipped | Failures | Errors |
-|------------|:------:|:-----:|:------:|:-------:|:--------:|:------:|
-| module-a   |    ✅  |     6 |      6 |       0 |        0 |      0 |
+"# Test Results
+
+| Status | Tests | Passed | Skipped | Failures | Errors |
+|:------:|:-----:|:------:|:-------:|:--------:|:------:|
+|    ✅  |     6 |      6 |       0 |        0 |      0 |
 "
 `;
 
 exports[`should handle single module 2`] = `
-"| Subproject | Status | Tests | Passed | Skipped | Failures | Errors |
+"# Test Results
+
+| Subproject | Status | Tests | Passed | Skipped | Failures | Errors |
 |------------|:------:|:-----:|:------:|:-------:|:--------:|:------:|
 | module-b   |    ✅  |     6 |      6 |       0 |        0 |      0 |
 | module-a   |    ✅  |     6 |      6 |       0 |        0 |      0 |

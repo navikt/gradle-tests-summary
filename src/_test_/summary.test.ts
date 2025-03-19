@@ -9,6 +9,8 @@ test('should handle single module', () => {
   const output = captureWritable()
   reportGenerator.generateReport(output.stream)
 
+  console.info(output.getOutput())
+
   expect(output.getOutput()).toMatchSnapshot()
 })
 
@@ -17,6 +19,8 @@ test('should handle single module', () => {
 
   const output = captureWritable()
   reportGenerator.generateReport(output.stream)
+
+  console.info(output.getOutput())
 
   expect(output.getOutput()).toMatchSnapshot()
 })
