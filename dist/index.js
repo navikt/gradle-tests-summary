@@ -490,8 +490,7 @@ var require_sax = __commonJS((exports) => {
   }
   ParseError.prototype = new Error;
   ParseError.prototype.name = ParseError.name;
-  function XMLReader() {
-  }
+  function XMLReader() {}
   XMLReader.prototype = {
     parse: function(source, defaultNSMap, entityMap) {
       var domBuilder = this.domBuilder;
@@ -1026,8 +1025,7 @@ var require_dom = __commonJS((exports) => {
   function _extends(Class, Super) {
     var pt = Class.prototype;
     if (!(pt instanceof Super)) {
-      let t2 = function() {
-      };
+      let t2 = function() {};
       var t = t2;
       t2.prototype = Super.prototype;
       t2 = new t2;
@@ -1089,8 +1087,7 @@ var require_dom = __commonJS((exports) => {
   }
   DOMException.prototype = Error.prototype;
   copy(ExceptionCode, DOMException);
-  function NodeList() {
-  }
+  function NodeList() {}
   NodeList.prototype = {
     length: 0,
     item: function(index) {
@@ -1122,8 +1119,7 @@ var require_dom = __commonJS((exports) => {
     return this[i];
   };
   _extends(LiveNodeList, NodeList);
-  function NamedNodeMap() {
-  }
+  function NamedNodeMap() {}
   function _findNodeIndex(list, node) {
     var i = list.length;
     while (i--) {
@@ -1257,8 +1253,7 @@ var require_dom = __commonJS((exports) => {
       return node;
     }
   };
-  function Node() {
-  }
+  function Node() {}
   Node.prototype = {
     firstChild: null,
     lastChild: null,
@@ -1362,8 +1357,7 @@ var require_dom = __commonJS((exports) => {
       } while (node = node.nextSibling);
     }
   }
-  function Document() {
-  }
+  function Document() {}
   function _onAddAttribute(doc, el, newAttr) {
     doc && doc._inc++;
     var ns = newAttr.namespaceURI;
@@ -1700,12 +1694,10 @@ var require_dom = __commonJS((exports) => {
   Document.prototype.getElementsByTagName = Element.prototype.getElementsByTagName;
   Document.prototype.getElementsByTagNameNS = Element.prototype.getElementsByTagNameNS;
   _extends(Element, Node);
-  function Attr() {
-  }
+  function Attr() {}
   Attr.prototype.nodeType = ATTRIBUTE_NODE;
   _extends(Attr, Node);
-  function CharacterData() {
-  }
+  function CharacterData() {}
   CharacterData.prototype = {
     data: "",
     substringData: function(offset, count) {
@@ -1734,8 +1726,7 @@ var require_dom = __commonJS((exports) => {
     }
   };
   _extends(CharacterData, Node);
-  function Text() {
-  }
+  function Text() {}
   Text.prototype = {
     nodeName: "#text",
     nodeType: TEXT_NODE,
@@ -1753,47 +1744,38 @@ var require_dom = __commonJS((exports) => {
     }
   };
   _extends(Text, CharacterData);
-  function Comment() {
-  }
+  function Comment() {}
   Comment.prototype = {
     nodeName: "#comment",
     nodeType: COMMENT_NODE
   };
   _extends(Comment, CharacterData);
-  function CDATASection() {
-  }
+  function CDATASection() {}
   CDATASection.prototype = {
     nodeName: "#cdata-section",
     nodeType: CDATA_SECTION_NODE
   };
   _extends(CDATASection, CharacterData);
-  function DocumentType() {
-  }
+  function DocumentType() {}
   DocumentType.prototype.nodeType = DOCUMENT_TYPE_NODE;
   _extends(DocumentType, Node);
-  function Notation() {
-  }
+  function Notation() {}
   Notation.prototype.nodeType = NOTATION_NODE;
   _extends(Notation, Node);
-  function Entity() {
-  }
+  function Entity() {}
   Entity.prototype.nodeType = ENTITY_NODE;
   _extends(Entity, Node);
-  function EntityReference() {
-  }
+  function EntityReference() {}
   EntityReference.prototype.nodeType = ENTITY_REFERENCE_NODE;
   _extends(EntityReference, Node);
-  function DocumentFragment() {
-  }
+  function DocumentFragment() {}
   DocumentFragment.prototype.nodeName = "#document-fragment";
   DocumentFragment.prototype.nodeType = DOCUMENT_FRAGMENT_NODE;
   _extends(DocumentFragment, Node);
-  function ProcessingInstruction() {
-  }
+  function ProcessingInstruction() {}
   ProcessingInstruction.prototype.nodeType = PROCESSING_INSTRUCTION_NODE;
   _extends(ProcessingInstruction, Node);
-  function XMLSerializer() {
-  }
+  function XMLSerializer() {}
   XMLSerializer.prototype.serializeToString = function(node, isHtml, nodeFilter) {
     return nodeSerializeToString.call(node, isHtml, nodeFilter);
   };
@@ -2067,8 +2049,7 @@ var require_dom = __commonJS((exports) => {
         object["$$" + key] = value;
       };
     }
-  } catch (e) {
-  }
+  } catch (e) {}
   var getTextContent;
   exports.Node = Node;
   exports.DOMException = DOMException;
@@ -2125,8 +2106,7 @@ var require_dom_parser = __commonJS((exports) => {
       }
       errorHandler[key] = fn2 && function(msg) {
         fn2("[xmldom " + key + "]\t" + msg + _locator(locator));
-      } || function() {
-      };
+      } || function() {};
     }
     build("warning");
     build("error");
@@ -2169,17 +2149,14 @@ var require_dom_parser = __commonJS((exports) => {
       var tagName = current.tagName;
       this.currentElement = current.parentNode;
     },
-    startPrefixMapping: function(prefix, uri) {
-    },
-    endPrefixMapping: function(prefix) {
-    },
+    startPrefixMapping: function(prefix, uri) {},
+    endPrefixMapping: function(prefix) {},
     processingInstruction: function(target, data) {
       var ins = this.doc.createProcessingInstruction(target, data);
       this.locator && position(this.locator, ins);
       appendElement(this, ins);
     },
-    ignorableWhitespace: function(ch, start, length) {
-    },
+    ignorableWhitespace: function(ch, start, length) {},
     characters: function(chars, start, length) {
       chars = _toString.apply(this, arguments);
       if (chars) {
@@ -2196,8 +2173,7 @@ var require_dom_parser = __commonJS((exports) => {
         this.locator && position(this.locator, charNode);
       }
     },
-    skippedEntity: function(name2) {
-    },
+    skippedEntity: function(name2) {},
     endDocument: function() {
       this.doc.normalize();
     },
@@ -3444,10 +3420,8 @@ var require_xpath = __commonJS((exports) => {
     Expression.prototype = new Object;
     Expression.prototype.constructor = Expression;
     Expression.superclass = Object.prototype;
-    function Expression() {
-    }
-    Expression.prototype.init = function() {
-    };
+    function Expression() {}
+    Expression.prototype.init = function() {};
     Expression.prototype.toString = function() {
       return "<Expression>";
     };
@@ -4085,8 +4059,7 @@ var require_xpath = __commonJS((exports) => {
         if (n.selectSingleNode) {
           return n.selectSingleNode("..");
         }
-      } catch (e) {
-      }
+      } catch (e) {}
       var doc = n.nodeType == NodeTypes.DOCUMENT_NODE ? n : n.ownerDocument;
       var elts = doc.getElementsByTagName("*");
       for (var i = 0;i < elts.length; i++) {
@@ -4200,8 +4173,7 @@ var require_xpath = __commonJS((exports) => {
       };
     };
     NodeTest.makeNodeTestType = function(type, members, ctor) {
-      var newType = ctor || function() {
-      };
+      var newType = ctor || function() {};
       newType.prototype = new NodeTest(type);
       newType.prototype.constructor = newType;
       assign(newType.prototype, members);
@@ -5052,8 +5024,7 @@ var require_xpath = __commonJS((exports) => {
     VariableResolver.prototype = new Object;
     VariableResolver.prototype.constructor = VariableResolver;
     VariableResolver.superclass = Object.prototype;
-    function VariableResolver() {
-    }
+    function VariableResolver() {}
     VariableResolver.prototype.getVariable = function(ln, ns) {
       return null;
     };
@@ -5110,8 +5081,7 @@ var require_xpath = __commonJS((exports) => {
     NamespaceResolver.prototype = new Object;
     NamespaceResolver.prototype.constructor = NamespaceResolver;
     NamespaceResolver.superclass = Object.prototype;
-    function NamespaceResolver() {
-    }
+    function NamespaceResolver() {}
     NamespaceResolver.prototype.getNamespace = function(prefix, n) {
       if (prefix == "xml") {
         return XPath.XML_NAMESPACE_URI;
@@ -5741,13 +5711,11 @@ var require_xpath = __commonJS((exports) => {
         if (document.implementation && document.implementation.hasFeature && document.implementation.hasFeature("XPath", null)) {
           shouldInstall = false;
         }
-      } catch (e) {
-      }
+      } catch (e) {}
       if (shouldInstall) {
         installDOM3XPathSupport(document, new XPathParser);
       }
-    } catch (e) {
-    }
+    } catch (e) {}
     installDOM3XPathSupport(exports2, new XPathParser);
     (function() {
       var parser = new XPathParser;
@@ -6013,8 +5981,8 @@ var require_xpath = __commonJS((exports) => {
 });
 
 // src/report-generator.ts
-import * as fs from "fs";
-import * as path2 from "path";
+import * as fs from "node:fs";
+import * as path2 from "node:path";
 
 // node_modules/minimatch/dist/esm/index.js
 var import_brace_expansion = __toESM(require_brace_expansion(), 1);
@@ -6734,8 +6702,7 @@ class Minimatch {
     }
     return false;
   }
-  debug(..._) {
-  }
+  debug(..._) {}
   make() {
     const pattern = this.pattern;
     const options = this.options;
@@ -7567,12 +7534,9 @@ class LRUCache {
       return !!t && !!s && (cachedNow || getNow()) - s > t;
     };
   }
-  #updateItemAge = () => {
-  };
-  #statusTTL = () => {
-  };
-  #setItemTTL = () => {
-  };
+  #updateItemAge = () => {};
+  #statusTTL = () => {};
+  #setItemTTL = () => {};
   #isStale = () => false;
   #initializeSizeTracking() {
     const sizes = new ZeroArray(this.#max);
@@ -7616,10 +7580,8 @@ class LRUCache {
       }
     };
   }
-  #removeItemSize = (_i) => {
-  };
-  #addItemSize = (_i, _s, _st) => {
-  };
+  #removeItemSize = (_i) => {};
+  #addItemSize = (_i, _s, _st) => {};
   #requireSize = (_k, _v, size, sizeCalculation) => {
     if (size || sizeCalculation) {
       throw new TypeError("cannot set size without setting maxSize or maxEntrySize on cache");
@@ -8418,8 +8380,7 @@ class Pipe {
   unpipe() {
     this.dest.removeListener("drain", this.ondrain);
   }
-  proxyErrors(_er) {
-  }
+  proxyErrors(_er) {}
   end() {
     this.unpipe();
     if (this.opts.end)
@@ -8529,8 +8490,7 @@ class Minipass extends EventEmitter {
   get aborted() {
     return this[ABORTED];
   }
-  set aborted(_) {
-  }
+  set aborted(_) {}
   write(chunk, encoding, cb) {
     if (this[ABORTED])
       return false;
@@ -8702,8 +8662,7 @@ class Minipass extends EventEmitter {
     return this[BUFFER].shift();
   }
   [FLUSH](noDrain = false) {
-    do {
-    } while (this[FLUSHCHUNK](this[BUFFERSHIFT]()) && this[BUFFER].length);
+    do {} while (this[FLUSHCHUNK](this[BUFFERSHIFT]()) && this[BUFFER].length);
     if (!noDrain && !this[BUFFER].length && !this[EOF])
       this.emit("drain");
   }
@@ -9648,8 +9607,7 @@ class PathBase {
     if (this.#asyncReaddirInFlight) {
       await this.#asyncReaddirInFlight;
     } else {
-      let resolve = () => {
-      };
+      let resolve = () => {};
       this.#asyncReaddirInFlight = new Promise((res) => resolve = res);
       try {
         for (const e of await this.#fs.promises.readdir(fullpath, {
@@ -11320,11 +11278,13 @@ class ReportGenerator {
     this.pathPrefix = pathPrefix;
   }
   generateReport(out) {
-    this.printHeaders(out);
     const testFiles = sync(`${this.pathPrefix}**/{TEST,test}-*.xml`);
     const grouped = this.groupBySubproject(testFiles);
+    const subprojects = Object.keys(grouped);
+    const subprojectWidth = Math.max("Subproject".length, ...subprojects.map((p) => p.length));
+    this.printHeaders(out, subprojectWidth);
     for (const [group, testResults] of Object.entries(grouped)) {
-      this.process(out, group, testResults);
+      this.process(out, group, testResults, subprojectWidth);
     }
   }
   groupBySubproject(files) {
@@ -11336,12 +11296,18 @@ class ReportGenerator {
       return acc;
     }, {});
   }
-  process(out, group, testResults) {
+  process(out, group, testResults, subprojectWidth) {
     const docs = testResults.map((file) => {
       const content = fs.readFileSync(file, "utf-8");
-      return new import_xmldom.DOMParser().parseFromString(content, "text/xml");
+      return new import_xmldom.DOMParser({
+        errorHandler: (level, msg) => {
+          if (level === "fatalError" || process.env.VERBOSE === "true") {
+            console.error(msg);
+          }
+        }
+      }).parseFromString(content, "text/xml");
     });
-    this.printGroup(out, group, this.counts(docs));
+    this.printGroup(out, group, this.counts(docs), subprojectWidth);
   }
   counts(docs) {
     return Object.fromEntries(Object.entries(COUNT_XPATHS).map(([key, xpathQuery]) => [key, this.count(docs, xpathQuery)]));
@@ -11349,15 +11315,26 @@ class ReportGenerator {
   count(docs, xpathQuery) {
     return docs.reduce((sum, doc) => sum + xpath.select("count(" + xpathQuery + ")", doc), 0);
   }
-  printHeaders(out) {
-    out.write(`| Subproject | Status | Tests | Passed | Skipped | Failures | Errors |
+  printHeaders(out, subprojectWidth) {
+    const subprojectCol = "Subproject".padEnd(subprojectWidth);
+    out.write(`| ${subprojectCol} | Status | Tests | Passed | Skipped | Failures | Errors |
 `);
-    out.write(`|------------|:------:|:-----:|:------:|:-------:|:--------:|:------:|
+    out.write(`|-${"-".repeat(subprojectWidth)}-|:------:|:-----:|:------:|:-------:|:--------:|:------:|
 `);
   }
-  printGroup(out, group, counts) {
-    const status = counts.failures === 0 && counts.errors === 0 ? ":white_check_mark:" : ":x:";
-    const stats = [group, status, counts.tests, counts.passed, counts.skipped, counts.failures, counts.errors];
+  printGroup(out, group, counts, subprojectWidth) {
+    const status = counts.failures === 0 && counts.errors === 0 ? " ✅ " : " ❌ ";
+    const paddedGroup = group.padEnd(subprojectWidth);
+    const formatNumber = (num, headerWidth) => num.toString().padStart(headerWidth, " ");
+    const stats = [
+      paddedGroup,
+      status.padStart(5).padEnd(3),
+      formatNumber(counts.tests, 5),
+      formatNumber(counts.passed, 6),
+      formatNumber(counts.skipped, 7),
+      formatNumber(counts.failures, 8),
+      formatNumber(counts.errors, 6)
+    ];
     out.write(`| ${stats.join(" | ")} |
 `);
   }
