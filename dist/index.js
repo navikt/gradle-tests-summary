@@ -11282,9 +11282,10 @@ class ReportGenerator {
     const grouped = this.groupBySubproject(testFiles);
     const subprojects = Object.keys(grouped);
     const subprojectWidth = Math.max("Subproject".length, ...subprojects.map((p) => p.length));
-    this.printHeaders(out, subprojectWidth);
+    const isSingleSubproject = subprojects.length === 1;
+    this.printHeaders(out, subprojectWidth, isSingleSubproject);
     for (const [group, testResults] of Object.entries(grouped)) {
-      this.process(out, group, testResults, subprojectWidth);
+      this.process(out, group, testResults, subprojectWidth, isSingleSubproject);
     }
   }
   groupBySubproject(files) {
@@ -11296,7 +11297,7 @@ class ReportGenerator {
       return acc;
     }, {});
   }
-  process(out, group, testResults, subprojectWidth) {
+  process(out, group, testResults, subprojectWidth, isSingleSubproject) {
     const docs = testResults.map((file) => {
       const content = fs.readFileSync(file, "utf-8");
       return new import_xmldom.DOMParser({
@@ -11307,7 +11308,7 @@ class ReportGenerator {
         }
       }).parseFromString(content, "text/xml");
     });
-    this.printGroup(out, group, this.counts(docs), subprojectWidth);
+    this.printGroup(out, group, this.counts(docs), subprojectWidth, isSingleSubproject);
   }
   counts(docs) {
     return Object.fromEntries(Object.entries(COUNT_XPATHS).map(([key, xpathQuery]) => [key, this.count(docs, xpathQuery)]));
@@ -11315,14 +11316,24 @@ class ReportGenerator {
   count(docs, xpathQuery) {
     return docs.reduce((sum, doc) => sum + xpath.select("count(" + xpathQuery + ")", doc), 0);
   }
-  printHeaders(out, subprojectWidth) {
+  printHeaders(out, subprojectWidth, isSingleSubproject) {
     const subprojectCol = "Subproject".padEnd(subprojectWidth);
-    out.write(`| ${subprojectCol} | Status | Tests | Passed | Skipped | Failures | Errors |
+    out.write(`# Test Results
+
 `);
-    out.write(`|-${"-".repeat(subprojectWidth)}-|:------:|:-----:|:------:|:-------:|:--------:|:------:|
+    if (isSingleSubproject) {
+      out.write(`| Status | Tests | Passed | Skipped | Failures | Errors |
 `);
+      out.write(`|:------:|:-----:|:------:|:-------:|:--------:|:------:|
+`);
+    } else {
+      out.write(`| ${subprojectCol} | Status | Tests | Passed | Skipped | Failures | Errors |
+`);
+      out.write(`|-${"-".repeat(subprojectWidth)}-|:------:|:-----:|:------:|:-------:|:--------:|:------:|
+`);
+    }
   }
-  printGroup(out, group, counts, subprojectWidth) {
+  printGroup(out, group, counts, subprojectWidth, isSingleSubproject) {
     const status = counts.failures === 0 && counts.errors === 0 ? " ✅ " : " ❌ ";
     const paddedGroup = group.padEnd(subprojectWidth);
     const formatNumber = (num, headerWidth) => num.toString().padStart(headerWidth, " ");
@@ -11335,8 +11346,13 @@ class ReportGenerator {
       formatNumber(counts.failures, 8),
       formatNumber(counts.errors, 6)
     ];
-    out.write(`| ${stats.join(" | ")} |
+    if (isSingleSubproject) {
+      out.write(`| ${stats.slice(1).join(" | ")} |
 `);
+    } else {
+      out.write(`| ${stats.join(" | ")} |
+`);
+    }
   }
 }
 
