@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "bun build src/index.ts --target node --outfile dist/index.js"
+    "build": "bun build src/index.ts --target node --outfile dist/index.js",
+    
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
