@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "deploy": "./deploy.sh",
     "build": "bun build src/index.ts --target node --outfile dist/index.js",
     "prepare": "husky"
   },
